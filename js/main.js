@@ -23,19 +23,6 @@
         }
     }
 
-
-    // const progressBar = (percent) => {
-    //     const progress = document.createElement('div');
-    //     progress.classList.add("progress-bar");
-
-    //     const bar = document.createElement('div');
-    //     bar.innerHTML = `${percent} %`;
-    //     bar.classList.add("progress");
-    //     bar.style.width = percent + '%';
-    //     progress.appendChild(bar);
-    //     return progress;
-    // }
-
     const progressBar = (percent) => {
 
         const bar = document.createElement('div');
@@ -54,7 +41,7 @@
             const section = document.createElement('div');
             section.innerHTML = `${parentSequence}.${index+1}. ${el.title}`;
             section.setAttribute('id', el.id);
-            section.classList.add("panel-list");
+            el.status === 'COMPLETE' ? section.classList.add('panel-list', 'complete') : section.classList.add('panel-list');
             panel.appendChild(section);
         });
         return fragment.appendChild(panel);

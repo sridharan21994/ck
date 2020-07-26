@@ -40,6 +40,10 @@
       max-width: calc(100% - 150px);
   }
 
+  .panel-list.complete {
+      color: #00a353;
+  }
+
  .accordion:hover {
     background-color: #00a353; 
     color: #fff;
