@@ -1,4 +1,7 @@
 (function() {
+    const subjectUrl = 'http://localhost:3000/api/book/maths';
+    const lessonsUrl = 'http://localhost:3000/api/book/maths/section/';
+
     const apiCall = (url) => {
         return fetch(url)
         .then(res => res.json())
@@ -64,7 +67,7 @@
                 const percent = Math.ceil(el.completeCount / el.childrenCount * 100);
                 main.appendChild(progressBar(percent));
 
-                apiCall(`http://localhost:3000/api/book/maths/section/${el.id}`)
+                apiCall(`${lessonsUrl}${el.id}`)
                 .then(response => {                
                     main.appendChild(subFragments(response[el.id], index+1));
                 });
@@ -75,9 +78,8 @@
         return fragment;
     }
 
-    apiCall('http://localhost:3000/api/book/maths')
+    apiCall(subjectUrl)
     .then(response => {
-        console.table(response);
         let parentElement = document.getElementById('maths');
         let parentFragment = getMainFragments(response);
 
